@@ -5,7 +5,14 @@ uniform vec2 uFrequency;
 uniform float uTime;
 
 attribute vec3 position;
+attribute vec2 uv;
+
 //attribute float aRandom;
+
+// varying float vRandom;
+
+// Send UV to the fragment
+varying vec2 vUv;
 
 void main()
 {
@@ -21,4 +28,7 @@ void main()
     vec4 projectedPosition = projectionMatrix * viewPosition;
 
     gl_Position = projectedPosition;
+    
+    // vRandom = aRandom;
+    vUv = uv;
 }

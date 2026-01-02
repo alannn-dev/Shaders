@@ -21,7 +21,7 @@ const scene = new THREE.Scene()
  * Textures
  */
 const textureLoader = new THREE.TextureLoader()
-
+const flagTexture = textureLoader.load('/textures/flag-french.jpg')
 /**
  * Test mesh
  */
@@ -29,7 +29,7 @@ const textureLoader = new THREE.TextureLoader()
 const geometry = new THREE.PlaneGeometry(1, 1, 32, 32)
 
 
-// Vertices count
+// Vertices count on the PlaneGeometry
 const count = geometry.attributes.position.count;
 
 const randoms = new Float32Array(count)
@@ -51,9 +51,9 @@ const material = new THREE.RawShaderMaterial({
     uniforms: 
     {
         uFrequency: {value: new THREE.Vector2(10, 5)},
-        // Time elapsed since the shader was launched
         uTime: { value: 0 },
-        uColor: { value: new THREE.Color('Blue') }
+        uColor: { value: new THREE.Color('Blue') },
+        uTexture: { value: flagTexture}
     }
     // transparent: true
     // wireframe: true
